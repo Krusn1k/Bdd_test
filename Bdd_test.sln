@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bdd_test", "Bdd_test\Bdd_test.csproj", "{BE52C63E-B6E7-46BC-AD15-96F8D7CE50FF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{0D9E66F0-8C08-429D-B395-8B677B4CC3D0}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\packages.config = .nuget\packages.config
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BE52C63E-B6E7-46BC-AD15-96F8D7CE50FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE52C63E-B6E7-46BC-AD15-96F8D7CE50FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE52C63E-B6E7-46BC-AD15-96F8D7CE50FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE52C63E-B6E7-46BC-AD15-96F8D7CE50FF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
