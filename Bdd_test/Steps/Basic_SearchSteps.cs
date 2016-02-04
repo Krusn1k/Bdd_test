@@ -3,7 +3,10 @@ using System.Configuration;
 using TechTalk.SpecFlow;
 using NUnit.Framework;
 using Bdd_PageObject.MainPage;
-using 
+using Bdd_test.BaseTestClass;
+using Bdd_PageObject.Driver;
+using OpenQA.Selenium.Support.UI;
+using OpenQA.Selenium;
 
 namespace Bdd_test.Steps
 {
@@ -12,41 +15,29 @@ namespace Bdd_test.Steps
     public class Basic_SearchSteps:
         BaseTest
     {
-        [TestFixtureSetUp, Description("WebDriver init")]
-        public void TestInitialize()
-        {
-            if (ConfigurationManager.AppSettings["driver"] == "chrome") driver = new ChromeDriver();
-            if (ConfigurationManager.AppSettings["driver"] == "firefox") driver = new FirefoxDriver();
-            if (ConfigurationManager.AppSettings["driver"] == "explorer") driver = new InternetExplorerDriver();
+        MainPage mainPage = new MainPage(WebDriverSingleton.getInstance());
 
-            driver.Manage().Window.Maximize();
-            driver.Navigate().GoToUrl(LoginPage.LOGIN_URL);
-
-            /*  DesiredCapabilities capabilities = DesiredCapabilities.Chrome();
-              capabilities.SetCapability(CapabilityType.Platform, new Platform(PlatformType.Windows));            
-              driver = new RemoteWebDriver(new Uri("http://localhost:4444/wd/hub"), capabilities);
-              */
-        }
-
-        [Test]
         [Given(@"I set search rquest ""(.*)""")]
         public void GivenISetSearchRquest(string criteria)
         {
-            MainPage mainpage = new MainPage(driver);
+            mainPage.goToURL();
+            mainPage.addSearchCriteria(criteria);
         }
         
-        [Test]
         [When(@"I perform search")]
         public void WhenIPerformSearch()
         {
-            ScenarioContext.Current.Pending();
+            mainPage.clickToSearchButton();
         }
         
         [Test]
         [Then(@"the search query ""(.*)"" should be the first in the Search Result grid")]
-        public void ThenTheSearchQueryShouldBeTheFirstInTheSearchResultGrid(string p0)
+        public void ThenTheSearchQueryShouldBeTheFirstInTheSearchResultGrid(string criteria)
         {
-            ScenarioContext.Current.Pending();
+            WebDriverSingleton.getInstance().Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(15));
+            WebDriverWait wait = new WebDriverWait(WebDriverSingleton.getInstance(), TimeSpan.FromSeconds(40));
+            wait.Until(ExpectedConditions.ElementIsVisible(By.XPath("//li[@r='1']/h3/a")));
+            Assert.IsTrue(mainPage.SearchResult.Text.Contains(criteria));
         }
     }
 }
