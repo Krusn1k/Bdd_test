@@ -31,7 +31,6 @@ namespace Bdd_test.Steps
             mainPage.clickToSearchButton();
         }
         
-        [Test]
         [Then(@"the search query ""(.*)"" should be the first in the Search Result grid")]
         public void ThenTheSearchQueryShouldBeTheFirstInTheSearchResultGrid(string criteria)
         {
