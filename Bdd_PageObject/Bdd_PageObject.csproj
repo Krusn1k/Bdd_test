@@ -56,7 +56,6 @@
     <Compile Include="Driver\DriverFactory\FirefoxDriverCreator.cs" />
     <Compile Include="Driver\DriverFactory\WebDriverCreator.cs" />
     <Compile Include="Driver\DriverFactory\WebDriverSet.cs" />
-    <Compile Include="Driver\WaitDecorator.cs" />
     <Compile Include="Driver\WebDriverSingleton.cs" />
     <Compile Include="MainPage\MainPage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
