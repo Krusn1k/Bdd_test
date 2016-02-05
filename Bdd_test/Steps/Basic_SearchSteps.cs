@@ -20,6 +20,7 @@ namespace Bdd_test.Steps
         [Given(@"I set search rquest ""(.*)""")]
         public void GivenISetSearchRquest(string criteria)
         {
+            this.TestInitialize();
             mainPage.goToURL();
             mainPage.addSearchCriteria(criteria);
         }
@@ -34,10 +35,8 @@ namespace Bdd_test.Steps
         [Then(@"the search query ""(.*)"" should be the first in the Search Result grid")]
         public void ThenTheSearchQueryShouldBeTheFirstInTheSearchResultGrid(string criteria)
         {
-            WebDriverSingleton.getInstance().Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(15));
-            WebDriverWait wait = new WebDriverWait(WebDriverSingleton.getInstance(), TimeSpan.FromSeconds(40));
-            wait.Until(ExpectedConditions.ElementIsVisible(By.XPath("//li[@r='1']/h3/a")));
             Assert.IsTrue(mainPage.SearchResult.Text.Contains(criteria));
+            this.TestCleanup();
         }
     }
 }

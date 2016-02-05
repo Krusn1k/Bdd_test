@@ -64,20 +64,39 @@ namespace Bdd_test.Features
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Add two numbers")]
+        [NUnit.Framework.DescriptionAttribute("Basic_search_scenario")]
         [NUnit.Framework.CategoryAttribute("mytag")]
-        public virtual void AddTwoNumbers()
+        public virtual void Basic_Search_Scenario()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add two numbers", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Basic_search_scenario", new string[] {
                         "mytag"});
 #line 4
 this.ScenarioSetup(scenarioInfo);
 #line 5
- testRunner.Given("I set search rquest \"iPhone 4s\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("I set search rquest \"iPhone 4S\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 6
  testRunner.When("I perform search", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 7
- testRunner.Then("the search query \"iPhone 4s\" should be the first in the Search Result grid", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("the search query \"iPhone 4S\" should be the first in the Search Result grid", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Basic_search_scenario_2")]
+        [NUnit.Framework.TestCaseAttribute("iPhone 4S", new string[0])]
+        [NUnit.Framework.TestCaseAttribute("Samsung Galaxy", new string[0])]
+        public virtual void Basic_Search_Scenario_2(string request, string[] exampleTags)
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Basic_search_scenario_2", exampleTags);
+#line 9
+this.ScenarioSetup(scenarioInfo);
+#line 10
+ testRunner.Given(string.Format("I set search rquest \"{0}\"", request), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 11
+ testRunner.When("I perform search", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 12
+ testRunner.Then(string.Format("the search query \"{0}\" should be the first in the Search Result grid", request), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
