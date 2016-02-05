@@ -31,7 +31,8 @@ namespace Bdd_test.Features
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Basic_search", null, ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Basic_search", "/*Background: Initialize driver\r\nGiven I initialize driver for tests\r\nAnd I clean" +
+                    "up driver for test*/", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -70,13 +71,15 @@ namespace Bdd_test.Features
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Basic_search_scenario", new string[] {
                         "mytag"});
-#line 4
+#line 8
 this.ScenarioSetup(scenarioInfo);
-#line 5
- testRunner.Given("I set search rquest \"iPhone 4S\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 6
+#line 9
+ testRunner.Given("I go to url", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 10
+ testRunner.And("I set search rquest \"iPhone 4S\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 11
  testRunner.When("I perform search", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 7
+#line 12
  testRunner.Then("the search query \"iPhone 4S\" should be the first in the Search Result grid", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -89,13 +92,15 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void Basic_Search_Scenario_2(string request, string[] exampleTags)
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Basic_search_scenario_2", exampleTags);
-#line 9
+#line 14
 this.ScenarioSetup(scenarioInfo);
-#line 10
- testRunner.Given(string.Format("I set search rquest \"{0}\"", request), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 11
+#line 15
+ testRunner.Given("I go to url", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 16
+ testRunner.And(string.Format("I set search rquest \"{0}\"", request), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 17
  testRunner.When("I perform search", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 12
+#line 18
  testRunner.Then(string.Format("the search query \"{0}\" should be the first in the Search Result grid", request), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();

@@ -82,6 +82,7 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Steps\Basic_SearchSteps.cs" />
+    <Compile Include="Steps\BeforeAfterFeature.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -52,6 +52,17 @@ namespace Bdd_PageObject.MainPage
             set { }
         }
 
+        [FindsBy(How = How.XPath, Using = "//span[@class='listingscnt']")]
+        private IWebElement searchPageLocator { get; set; }
+        public string SearchPageLocator
+        {
+            get
+            {
+                return "//span[@class='listingscnt']";
+            }
+            set { }
+        }
+
         public void goToURL()
         {
             driver.Navigate().GoToUrl(ConfigurationManager.AppSettings["url"]);

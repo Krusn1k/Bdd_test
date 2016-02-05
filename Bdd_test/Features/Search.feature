@@ -1,13 +1,19 @@
 ﻿Feature: Basic_search
-	
+
+/*Background: Initialize driver
+Given I initialize driver for tests
+And I cleanup driver for test*/
+
 @mytag
 Scenario: Basic_search_scenario
-	Given I set search rquest "iPhone 4S"
+	Given I go to url
+	And I set search rquest "iPhone 4S"
 	When I perform search
 	Then the search query "iPhone 4S" should be the first in the Search Result grid
 
 Scenario Outline: Basic_search_scenario_2
-	Given I set search rquest "<request>"
+	Given I go to url
+	And I set search rquest "<request>"
 	When I perform search
 	Then the search query "<request>" should be the first in the Search Result grid
 	Examples:

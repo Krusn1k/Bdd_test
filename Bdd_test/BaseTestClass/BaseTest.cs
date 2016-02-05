@@ -9,11 +9,11 @@ using Bdd_PageObject.Driver;
 
 namespace Bdd_test.BaseTestClass
 {
-    public abstract class BaseTest
+    public class BaseTest
     {
 
         [TestFixtureSetUp, Description("WebDriver init")]
-        public void TestInitialize()
+        public static void TestInitialize()
         {
             WebDriverSingleton.getInstance();
             WebDriverSingleton.getInstance().Manage().Window.Maximize();
@@ -21,7 +21,7 @@ namespace Bdd_test.BaseTestClass
         }
 
         [TestFixtureTearDown, Description("WebDriver clean up")]
-        public void TestCleanup()
+        public static void TestCleanup()
         {
             WebDriverSingleton.closeDriver();
         }

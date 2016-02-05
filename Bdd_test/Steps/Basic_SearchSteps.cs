@@ -3,7 +3,6 @@ using System.Configuration;
 using TechTalk.SpecFlow;
 using NUnit.Framework;
 using Bdd_PageObject.MainPage;
-using Bdd_test.BaseTestClass;
 using Bdd_PageObject.Driver;
 using OpenQA.Selenium.Support.UI;
 using OpenQA.Selenium;
@@ -11,17 +10,19 @@ using OpenQA.Selenium;
 namespace Bdd_test.Steps
 {
     [Binding]
-    [TestFixture]
-    public class Basic_SearchSteps:
-        BaseTest
+    public class Basic_SearchSteps
     {
         MainPage mainPage = new MainPage(WebDriverSingleton.getInstance());
 
+        [Given(@"I go to url")]
+        public void GoToUrl()
+        {
+            mainPage.goToURL();
+        }
+
         [Given(@"I set search rquest ""(.*)""")]
         public void GivenISetSearchRquest(string criteria)
-        {
-            this.TestInitialize();
-            mainPage.goToURL();
+        {            
             mainPage.addSearchCriteria(criteria);
         }
         
@@ -34,8 +35,9 @@ namespace Bdd_test.Steps
         [Then(@"the search query ""(.*)"" should be the first in the Search Result grid")]
         public void ThenTheSearchQueryShouldBeTheFirstInTheSearchResultGrid(string criteria)
         {
+            WebDriverWait wait = new WebDriverWait(WebDriverSingleton.getInstance(), TimeSpan.FromSeconds(15));
+            wait.Until(ExpectedConditions.ElementExists(By.XPath(mainPage.SearchPageLocator)));
             Assert.IsTrue(mainPage.SearchResult.Text.Contains(criteria));
-            this.TestCleanup();
         }
     }
 }
