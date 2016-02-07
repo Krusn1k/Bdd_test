@@ -8,7 +8,7 @@ using Bdd_PageObject.BaseClass;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
 
-namespace Bdd_PageObject.MainPage
+namespace Bdd_PageObject.Pages
 {
     public class MainPage:
         AbstractPage
@@ -52,8 +52,17 @@ namespace Bdd_PageObject.MainPage
             set { }
         }
 
-        [FindsBy(How = How.XPath, Using = "//span[@class='listingscnt']")]
-        private IWebElement searchPageLocator { get; set; }
+        [FindsBy(How = How.XPath, Using = ".//*[@id='ListViewInner']/li[1]/h3/a")]
+        private IWebElement searchResultLink { get; set; }
+        public IWebElement SearchResultLink
+        {
+            get
+            {
+                return searchResultLink;
+            }
+            set { }
+        }
+
         public string SearchPageLocator
         {
             get

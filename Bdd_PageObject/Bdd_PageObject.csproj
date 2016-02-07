@@ -57,7 +57,8 @@
     <Compile Include="Driver\DriverFactory\WebDriverCreator.cs" />
     <Compile Include="Driver\DriverFactory\WebDriverSet.cs" />
     <Compile Include="Driver\WebDriverSingleton.cs" />
-    <Compile Include="MainPage\MainPage.cs" />
+    <Compile Include="Pages\MainPage.cs" />
+    <Compile Include="Pages\SearchResultPage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

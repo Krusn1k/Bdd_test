@@ -2,7 +2,7 @@
 using System.Configuration;
 using TechTalk.SpecFlow;
 using NUnit.Framework;
-using Bdd_PageObject.MainPage;
+using Bdd_PageObject.Pages;
 using Bdd_PageObject.Driver;
 using OpenQA.Selenium.Support.UI;
 using OpenQA.Selenium;
@@ -20,13 +20,14 @@ namespace Bdd_test.Steps
             mainPage.goToURL();
         }
 
-        [Given(@"I set search rquest ""(.*)""")]
-        public void GivenISetSearchRquest(string criteria)
+        [Given(@"I set search request ""(.*)""")]
+        public void GivenISetSearchRequest(string criteria)
         {            
             mainPage.addSearchCriteria(criteria);
         }
         
         [When(@"I perform search")]
+        [Given(@"I perform search")]
         public void WhenIPerformSearch()
         {
             mainPage.clickToSearchButton();

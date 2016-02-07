@@ -18,21 +18,21 @@ namespace Bdd_test.Features
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "2.0.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("Basic_search")]
-    public partial class Basic_SearchFeature
+    [NUnit.Framework.DescriptionAttribute("OpenFindPage")]
+    public partial class OpenFindPageFeature
     {
         
         private TechTalk.SpecFlow.ITestRunner testRunner;
         
-#line 1 "Search.feature"
+#line 1 "OpenFindPage.feature"
 #line hidden
         
         [NUnit.Framework.TestFixtureSetUpAttribute()]
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Basic_search", "/*Background: Initialize driver\r\nGiven I initialize driver for tests\r\nAnd I clean" +
-                    "up driver for test*/", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "OpenFindPage", "\tIn order to avoid silly mistakes\r\n\tAs a math idiot\r\n\tI want to be told the sum o" +
+                    "f two numbers", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -65,43 +65,24 @@ namespace Bdd_test.Features
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Basic_search_scenario")]
+        [NUnit.Framework.DescriptionAttribute("Open_Find_Page")]
         [NUnit.Framework.CategoryAttribute("mytag")]
-        public virtual void Basic_Search_Scenario()
+        public virtual void Open_Find_Page()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Basic_search_scenario", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Open_Find_Page", new string[] {
                         "mytag"});
+#line 7
+this.ScenarioSetup(scenarioInfo);
 #line 8
-this.ScenarioSetup(scenarioInfo);
+ testRunner.Given("I go to url", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 9
- testRunner.Given("I go to url", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 10
  testRunner.And("I set search request \"iPhone 4S\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 10
+ testRunner.And("I perform search", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 11
- testRunner.When("I perform search", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("I open first search result", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 12
- testRunner.Then("the search query \"iPhone 4S\" should be the first in the Search Result grid", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-            this.ScenarioCleanup();
-        }
-        
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Basic_search_scenario_2")]
-        [NUnit.Framework.TestCaseAttribute("iPhone 4S", new string[0])]
-        [NUnit.Framework.TestCaseAttribute("Samsung Galaxy", new string[0])]
-        public virtual void Basic_Search_Scenario_2(string request, string[] exampleTags)
-        {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Basic_search_scenario_2", exampleTags);
-#line 14
-this.ScenarioSetup(scenarioInfo);
-#line 15
- testRunner.Given("I go to url", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 16
- testRunner.And(string.Format("I set search request \"{0}\"", request), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 17
- testRunner.When("I perform search", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 18
- testRunner.Then(string.Format("the search query \"{0}\" should be the first in the Search Result grid", request), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("the \"iPhone 4S\" search result page is open", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

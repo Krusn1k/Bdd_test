@@ -75,17 +75,27 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseTestClass\BaseTest.cs" />
+    <Compile Include="Features\OpenFindPage.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OpenFindPage.feature</DependentUpon>
+    </Compile>
     <Compile Include="Features\Search.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Search.feature</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Steps\AddToCard.cs" />
     <Compile Include="Steps\Basic_SearchSteps.cs" />
     <Compile Include="Steps\BeforeAfterFeature.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="Features\OpenFindPage.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>OpenFindPage.feature.cs</LastGenOutput>
+    </None>
     <None Include="Features\Search.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>Search.feature.cs</LastGenOutput>
@@ -97,6 +107,9 @@
       <Project>{de2947e4-b45e-46d0-8cd6-8caa375f2000}</Project>
       <Name>Bdd_PageObject</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
