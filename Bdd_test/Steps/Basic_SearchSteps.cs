@@ -13,6 +13,7 @@ namespace Bdd_test.Steps
     public class Basic_SearchSteps
     {
         MainPage mainPage = new MainPage(WebDriverSingleton.getInstance());
+        WebDriverWait wait = new WebDriverWait(WebDriverSingleton.getInstance(), TimeSpan.FromSeconds(15));
 
         [Given(@"I go to url")]
         public void GoToUrl()
@@ -22,7 +23,8 @@ namespace Bdd_test.Steps
 
         [Given(@"I set search request ""(.*)""")]
         public void GivenISetSearchRequest(string criteria)
-        {            
+        {
+            wait.Until(ExpectedConditions.ElementExists(By.XPath(mainPage.MainPageLocator)));
             mainPage.addSearchCriteria(criteria);
         }
         
@@ -35,8 +37,7 @@ namespace Bdd_test.Steps
         
         [Then(@"the search query ""(.*)"" should be the first in the Search Result grid")]
         public void ThenTheSearchQueryShouldBeTheFirstInTheSearchResultGrid(string criteria)
-        {
-            WebDriverWait wait = new WebDriverWait(WebDriverSingleton.getInstance(), TimeSpan.FromSeconds(15));
+        {            
             wait.Until(ExpectedConditions.ElementExists(By.XPath(mainPage.SearchPageLocator)));
             Assert.IsTrue(mainPage.SearchResult.Text.Contains(criteria));
         }

@@ -72,6 +72,14 @@ namespace Bdd_PageObject.Pages
             set { }
         }
 
+        public string MainPageLocator
+        {
+            get
+            {
+                return "//div[@id='top']";
+            }
+            set { }
+        }
         public void goToURL()
         {
             driver.Navigate().GoToUrl(ConfigurationManager.AppSettings["url"]);
