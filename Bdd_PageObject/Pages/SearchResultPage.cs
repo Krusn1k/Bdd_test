@@ -19,7 +19,7 @@ namespace Bdd_PageObject.Pages
             PageFactory.InitElements(this.driver, this);
         }
 
-        [FindsBy(How = How.XPath, Using = "//input[@id='msku-sel-1']")]
+        [FindsBy(How = How.XPath, Using = "//select[@id='msku-sel-1']/option[@id='msku-opt-0']")]
         private IWebElement selectColorDropDown { get; set; }
         public IWebElement SelectColorDropDown
         {
@@ -40,6 +40,17 @@ namespace Bdd_PageObject.Pages
             }
             set { }
         }
+        
+        [FindsBy(How = How.XPath, Using = "//a[@id='isCartBtn_btn']")]
+        private IWebElement addToCardButton { get; set; }
+        public IWebElement AddToCardButton
+        {
+            get
+            {
+                return addToCardButton;
+            }
+            set { }
+        }
 
         public string SearchResultPageLocator
         {
@@ -49,6 +60,5 @@ namespace Bdd_PageObject.Pages
             }
             set { }
         }
-
     }
 }

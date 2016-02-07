@@ -33,6 +33,8 @@ namespace Bdd_test.Steps
         public void WhenIPerformSearch()
         {
             mainPage.clickToSearchButton();
+            wait.Until(ExpectedConditions.ElementExists(By.XPath(mainPage.SearchPageLocator)));
+            mainPage.PurchaseOnlyRadioButton.Click();
         }
         
         [Then(@"the search query ""(.*)"" should be the first in the Search Result grid")]

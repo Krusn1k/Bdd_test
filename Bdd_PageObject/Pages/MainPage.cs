@@ -62,6 +62,17 @@ namespace Bdd_PageObject.Pages
             }
             set { }
         }
+        
+        [FindsBy(How = How.XPath, Using = "//div[@id='LeftNavContainer']/div/div/e1-157']")]
+        private IWebElement purchaseOnlyRadioButton { get; set; }
+        public IWebElement PurchaseOnlyRadioButton
+        {
+            get
+            {
+                return purchaseOnlyRadioButton;
+            }
+            set { }
+        }
 
         public string SearchPageLocator
         {

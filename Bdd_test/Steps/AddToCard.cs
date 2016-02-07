@@ -13,26 +13,30 @@ namespace Bdd_test.Steps
 {
     [Binding]
     public sealed class AddToCard
-    { 
+    {
+        WebDriverWait wait = new WebDriverWait(WebDriverSingleton.getInstance(), TimeSpan.FromSeconds(15));
+        SearchResultPage searchResultPage = new SearchResultPage(WebDriverSingleton.getInstance());
 
-        //Given is located in Basic_SearchSteps.cs
-
-        [When(@"I open first search result")]
-        public void WhenIPressAdd()
+        [Given(@"I select item options")]
+        public void ISelectItemOptions()
         {
-            MainPage mainPage = new MainPage(WebDriverSingleton.getInstance());
-            WebDriverWait wait = new WebDriverWait(WebDriverSingleton.getInstance(), TimeSpan.FromSeconds(15));
-            wait.Until(ExpectedConditions.ElementExists(By.XPath(mainPage.SearchPageLocator)));
-            mainPage.SearchResultLink.Click();
+            
+            wait.Until(ExpectedConditions.ElementExists(By.XPath(searchResultPage.SearchResultPageLocator)));
+            searchResultPage.SelectColorDropDown.Click();
         }
 
-        [Then(@"the ""(.*)"" search result page is open")]
-        public void ThenTheResultShouldBe(string query)
+        [When(@"I add item to card")]
+        public void IAddItemToCard()
         {
-            SearchResultPage searchResultPage = new SearchResultPage(WebDriverSingleton.getInstance());
-            WebDriverWait wait = new WebDriverWait(WebDriverSingleton.getInstance(), TimeSpan.FromSeconds(15));
-            wait.Until(ExpectedConditions.ElementExists(By.XPath(searchResultPage.SearchResultPageLocator)));
-            Assert.IsTrue(searchResultPage.SearchResultTitle.Text.Contains(query));
+            searchResultPage.AddToCardButton.Click();
+        }
+
+        [Then(@"the ""(.*)"" purchase page is open")]
+        public void ThePurchasePageIsOpen(string title)
+        {
+            PurchasePage purchasePage = new PurchasePage(WebDriverSingleton.getInstance());
+            wait.Until(ExpectedConditions.ElementExists(By.XPath(purchasePage.getPurchasePageLocator)));
+            Assert.IsTrue(purchasePage.ItemTitle.Text.Contains(title));
         }
     }
 }

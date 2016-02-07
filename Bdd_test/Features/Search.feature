@@ -1,9 +1,5 @@
 ﻿Feature: Basic_search
 
-/*Background: Initialize driver
-Given I initialize driver for tests
-And I cleanup driver for test*/
-
 @mytag
 Scenario: Basic_search_scenario
 	Given I go to url

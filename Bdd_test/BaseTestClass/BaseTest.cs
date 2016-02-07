@@ -11,8 +11,6 @@ namespace Bdd_test.BaseTestClass
 {
     public class BaseTest
     {
-
-        [TestFixtureSetUp, Description("WebDriver init")]
         public static void TestInitialize()
         {
             WebDriverSingleton.getInstance();
@@ -20,7 +18,6 @@ namespace Bdd_test.BaseTestClass
             WebDriverSingleton.getInstance().Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(15));
         }
 
-        [TestFixtureTearDown, Description("WebDriver clean up")]
         public static void TestCleanup()
         {
             WebDriverSingleton.closeDriver();
