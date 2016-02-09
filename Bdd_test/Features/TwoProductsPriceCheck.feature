@@ -4,7 +4,7 @@
 	I want to see correct price of the two similar products
 
 @mytag
-Scenario Outline: Add two numbers
+Scenario Outline: Two_Products_Price_Check
 	Given I go to url
 	And I set search request "iPhone 4S"
 	And I perform search

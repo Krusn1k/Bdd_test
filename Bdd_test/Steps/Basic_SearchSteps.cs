@@ -35,6 +35,7 @@ namespace Bdd_test.Steps
             mainPage.clickToSearchButton();
             wait.Until(ExpectedConditions.ElementExists(By.XPath(mainPage.SearchPageLocator)));
             mainPage.PurchaseOnlyButton.Click();
+            wait.Until(ExpectedConditions.ElementExists(By.XPath(mainPage.SearchPageLocator)));
         }
 
         [Given(@"I see on first search result price")]
@@ -43,6 +44,14 @@ namespace Bdd_test.Steps
             wait.Until(ExpectedConditions.ElementExists(By.XPath(mainPage.SearchPageLocator)));
             ScenarioContext.Current.Add("Price", mainPage.SearchResultPrice.Text);
         }
+
+        [Given(@"I see on first search result price of second product")]
+        public void GivenISeeOnFirstSearchResultPriceOfSecondProduct()
+        {
+            wait.Until(ExpectedConditions.ElementExists(By.XPath(mainPage.SearchPageLocator)));
+            ScenarioContext.Current.Add("Price2", mainPage.SearchResultPrice.Text);
+        }
+
         
         [Then(@"the search query ""(.*)"" should be the first in the Search Result grid")]
         public void ThenTheSearchQueryShouldBeTheFirstInTheSearchResultGrid(string criteria)

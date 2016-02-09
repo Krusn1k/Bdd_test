@@ -95,6 +95,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Search.feature</DependentUpon>
     </Compile>
+    <Compile Include="Features\TwoDifferentProductsPriceCheck.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TwoDifferentProductsPriceCheck.feature</DependentUpon>
+    </Compile>
     <Compile Include="Features\TwoProductsPriceCheck.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -123,6 +128,10 @@
     <None Include="Features\Search.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>Search.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\TwoDifferentProductsPriceCheck.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>TwoDifferentProductsPriceCheck.feature.cs</LastGenOutput>
     </None>
     <None Include="Features\TwoProductsPriceCheck.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>

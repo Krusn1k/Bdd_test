@@ -4,7 +4,7 @@
 	I want to see correct price
 
 @mytag
-Scenario: Add two numbers
+Scenario: One_Product_Price_Check
 	Given I go to url
 	And I set search request "iPhone 4S"
 	And I perform search

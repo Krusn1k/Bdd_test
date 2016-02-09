@@ -65,10 +65,10 @@ namespace Bdd_test.Features
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Add two numbers")]
+        [NUnit.Framework.DescriptionAttribute("Two_Products_Price_Check")]
         [NUnit.Framework.CategoryAttribute("mytag")]
         [NUnit.Framework.TestCaseAttribute("2", new string[0])]
-        public virtual void AddTwoNumbers(string count, string[] exampleTags)
+        public virtual void Two_Products_Price_Check(string count, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "mytag"};
@@ -76,7 +76,7 @@ namespace Bdd_test.Features
             {
                 @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
             }
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add two numbers", @__tags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Two_Products_Price_Check", @__tags);
 #line 7
 this.ScenarioSetup(scenarioInfo);
 #line 8

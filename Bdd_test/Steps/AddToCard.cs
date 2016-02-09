@@ -31,17 +31,19 @@ namespace Bdd_test.Steps
             searchResultPage.SelectProductCount.SendKeys(count);
         }
 
+        [Given(@"I add item to card")]
         [When(@"I add item to card")]
         public void IAddItemToCard()
         {
             searchResultPage.AddToCardButton.Click();
+            PurchasePage purchasePage = new PurchasePage(WebDriverSingleton.getInstance());
+            wait.Until(ExpectedConditions.ElementExists(By.XPath(purchasePage.getPurchasePageLocator)));
         }
 
         [Then(@"the ""(.*)"" purchase page is open")]
         public void ThePurchasePageIsOpen(string title)
         {
             PurchasePage purchasePage = new PurchasePage(WebDriverSingleton.getInstance());
-            wait.Until(ExpectedConditions.ElementExists(By.XPath(purchasePage.getPurchasePageLocator)));
             Assert.IsTrue(purchasePage.ItemTitle.Text.Contains(title));
         }
 
@@ -68,5 +70,25 @@ namespace Bdd_test.Steps
             price[1] = st;
             Assert.AreEqual(purchasePage.ItemPrice.Text, price[0] + "$" + price[1]);
         }
+
+        [Then(@"the price on the purchase page such as price on the search page of both product")]
+        public void ThenThePriceOnThePurchasePageSuchAsPriceOnTheSearchPageOfBothProduct()
+        {
+            PurchasePage purchasePage = new PurchasePage(WebDriverSingleton.getInstance());
+            wait.Until(ExpectedConditions.ElementExists(By.XPath(purchasePage.getPurchasePageLocator)));
+            String[] price = ScenarioContext.Current.Get<string>("Price").Split(new char[] { '$' }, StringSplitOptions.RemoveEmptyEntries);
+            price[1] = price[1].Replace(',', '.');
+            string st = price[1];
+            double incrementedPrice = Convert.ToDouble(st);
+            price = ScenarioContext.Current.Get<string>("Price2").Split(new char[] { '$' }, StringSplitOptions.RemoveEmptyEntries);
+            price[1] = price[1].Replace(',', '.');
+            st = price[1];
+            incrementedPrice += Convert.ToDouble(st);
+            st = Convert.ToString(incrementedPrice);
+            st = st.Replace('.', ',');
+            price[1] = st;
+            Assert.AreEqual(purchasePage.ItemPrice.Text, price[0] + "$" + price[1]);
+        }
+
     }
 }

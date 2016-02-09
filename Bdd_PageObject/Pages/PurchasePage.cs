@@ -41,7 +41,7 @@ namespace Bdd_PageObject.Pages
             set { }
         }
 
-        [FindsBy(How = How.XPath, Using = "//span[@class='fr tr m0 p0 ff-ds3 fs16 clr000 prcol140 pb15']/div[@class='fw-b']")]
+        [FindsBy(How = How.XPath, Using = "//table[@class='fr ralign cartSummaryTable']/tbody/tr[1]/td[2]/div[@class='nowrap tr normal']")]
         private IWebElement itemPrice { get; set; }
         public IWebElement ItemPrice
         {
