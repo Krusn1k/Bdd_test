@@ -36,6 +36,13 @@ namespace Bdd_test.Steps
             wait.Until(ExpectedConditions.ElementExists(By.XPath(mainPage.SearchPageLocator)));
             mainPage.PurchaseOnlyButton.Click();
         }
+
+        [Given(@"I see on first search result price")]
+        public void ISeeOnFirstSearchResultPrice()
+        {
+            wait.Until(ExpectedConditions.ElementExists(By.XPath(mainPage.SearchPageLocator)));
+            ScenarioContext.Current.Add("Price", mainPage.SearchResultPrice.Text);
+        }
         
         [Then(@"the search query ""(.*)"" should be the first in the Search Result grid")]
         public void ThenTheSearchQueryShouldBeTheFirstInTheSearchResultGrid(string criteria)

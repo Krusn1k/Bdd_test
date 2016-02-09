@@ -80,6 +80,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AddToCard.feature</DependentUpon>
     </Compile>
+    <Compile Include="Features\OneProductPriceCheck.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OneProductPriceCheck.feature</DependentUpon>
+    </Compile>
     <Compile Include="Features\OpenItemPage.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -101,6 +106,10 @@
     <None Include="Features\AddToCard.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>AddToCard.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\OneProductPriceCheck.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>OneProductPriceCheck.feature.cs</LastGenOutput>
     </None>
     <None Include="Features\OpenItemPage.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>

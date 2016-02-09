@@ -19,11 +19,10 @@ namespace Bdd_test.Steps
 
         [Given(@"I select item options")]
         public void ISelectItemOptions()
-        {
-            
+        {            
             wait.Until(ExpectedConditions.ElementExists(By.XPath(searchResultPage.SearchResultPageLocator)));
             searchResultPage.SelectColorDropDown.Click();
-        }
+        }        
 
         [When(@"I add item to card")]
         public void IAddItemToCard()
@@ -37,6 +36,14 @@ namespace Bdd_test.Steps
             PurchasePage purchasePage = new PurchasePage(WebDriverSingleton.getInstance());
             wait.Until(ExpectedConditions.ElementExists(By.XPath(purchasePage.getPurchasePageLocator)));
             Assert.IsTrue(purchasePage.ItemTitle.Text.Contains(title));
+        }
+
+        [Then(@"the price on the purchase page such as price on the search page")]
+        public void ThePriceOnThePurchasePageSuchAsPriceOnTheSearchPage()
+        {
+            PurchasePage purchasePage = new PurchasePage(WebDriverSingleton.getInstance());
+            wait.Until(ExpectedConditions.ElementExists(By.XPath(purchasePage.getPurchasePageLocator)));
+            Assert.AreEqual(purchasePage.ItemPrice.Text, ScenarioContext.Current.Get<string>("Price"));
         }
     }
 }

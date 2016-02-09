@@ -63,6 +63,17 @@ namespace Bdd_PageObject.Pages
             set { }
         }
 
+        [FindsBy(How = How.XPath, Using = ".//*[@id='ListViewInner']/li[1]/ul/li/span")]
+        private IWebElement searchResultPrice { get; set; }
+        public IWebElement SearchResultPrice
+        {
+            get
+            {
+                return searchResultPrice;
+            }
+            set { }
+        }
+
         [FindsBy(How = How.XPath, Using = "//div[@class='pnl-b frmt']/a[@class='small cbx btn btn-s btn-ter tab tgl_button last_b']")]
         private IWebElement purchaseOnlyRadioButton { get; set; }
         public IWebElement PurchaseOnlyButton
