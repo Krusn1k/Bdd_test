@@ -29,6 +29,17 @@ namespace Bdd_PageObject.Pages
             }
             set { }
         }
+
+        [FindsBy(How = How.XPath, Using = "//input[@id='qtyTextBox']")]
+        private IWebElement selectProductCount { get; set; }
+        public IWebElement SelectProductCount
+        {
+            get
+            {
+                return selectProductCount;
+            }
+            set { }
+        }
                 
         [FindsBy(How = How.XPath, Using = "//h1[@id='itemTitle']")]
         private IWebElement searchResultTitle { get; set; }
